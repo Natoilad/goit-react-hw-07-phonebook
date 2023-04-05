@@ -1,0 +1,22 @@
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  width: 330px;
+  margin: 5px;
+}
+.phone {
+  font-weight: 400;
+}
+.btn {
+  padding: 2px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  background-color: white;
+}
+.btn:hover {
+  scale: 1.1;
+  background-color: rgba(255, 0, 0, 0.919);
+  color: white;
+  border-color: rgb(255, 255, 255);
+}

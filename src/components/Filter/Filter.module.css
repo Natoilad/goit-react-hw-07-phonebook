@@ -1,0 +1,12 @@
+.input {
+  display: block;
+  margin: 10px 0;
+  width: 150px;
+  height: 20px;
+  border: 1px solid rgba(33, 33, 33, 0.3);
+  border-radius: 4px;
+}
+
+.input:focus-within {
+  border-color: rgba(0, 4, 255, 0.2);
+}
