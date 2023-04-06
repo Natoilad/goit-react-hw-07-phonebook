@@ -10,7 +10,11 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { sliceContact } from './sliceContact';
+import {
+  addContactsActions,
+  contactsReducer,
+  delContactsActions,
+} from './sliceContact';
 import { sliceFilter } from './sliceFilter';
 
 const persistConfig = {
@@ -20,7 +24,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  contacts: sliceContact.reducer,
+  // contacts: sliceContact.reducer,
   filter: sliceFilter.reducer,
 });
 

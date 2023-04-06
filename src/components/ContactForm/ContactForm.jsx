@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import css from './ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { add } from 'redux/sliceContact';
+import {
+  addContactsActions,
+  contactsReducer,
+  delContactsActions,
+} from 'redux/sliceContact';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -29,7 +33,8 @@ export const ContactForm = () => {
         ) {
           alert(`${name} is alredy in contacts`);
         } else {
-          dispatch(add({ name, number }));
+          dispatch();
+          // add({ name, number })
         }
         reset();
       }}
