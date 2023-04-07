@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { delContactsThunk } from 'redux/contactsThunk';
 
 export const ContactList = ({ listContact }) => {
-  // console.log(listContact);
   const dispatch = useDispatch();
   return listContact.map(cont => {
     return (

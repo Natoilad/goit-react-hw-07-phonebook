@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import css from './ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContactsThunk, getContactsThunk } from 'redux/contactsThunk';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -24,6 +26,7 @@ export const ContactForm = () => {
     <form
       className={css.form}
       onSubmit={e => {
+        const notifly = () => toast(`${name} is alredy in contacts`);
         const contact = {
           name: name,
           phone: number,
@@ -34,7 +37,7 @@ export const ContactForm = () => {
             value => value.name.toLocaleLowerCase() === name.toLocaleLowerCase()
           )
         ) {
-          alert(`${name} is alredy in contacts`);
+          notifly();
         } else {
           dispatch(addContactsThunk(contact));
           reset();
@@ -68,6 +71,13 @@ export const ContactForm = () => {
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
+        />
+        <ToastContainer
+          position="top-center"
+          autoClose={3000}
+          hideProgressBar={false}
+          pauseOnHover
+          theme="dark"
         />
         <button className={css.btn} type="submit">
           Add contact

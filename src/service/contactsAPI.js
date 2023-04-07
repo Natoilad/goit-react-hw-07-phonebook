@@ -10,16 +10,11 @@ export const getContacts = async () => {
 };
 
 export const addContacts = async contact => {
-  const { data } = await contactAPI.post(
-    'https://642dff8f2b883abc64053db5.mockapi.io/api/v1/contacts',
-    contact
-  );
+  const { data } = await contactAPI.post(`${BASEURL}/contacts`, contact);
   return data;
 };
 
 export const delContacts = async id => {
-  const { data } = await contactAPI.delete(
-    `https://642dff8f2b883abc64053db5.mockapi.io/api/v1/contacts/${id}`
-  );
+  const { data } = await contactAPI.delete(`${BASEURL}/contacts/${id}`);
   return data;
 };
