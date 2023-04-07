@@ -3,17 +3,21 @@ import { Filter } from '../Filter/Filter';
 import { ContactForm } from '../ContactForm/ContactForm';
 import css from './App.module.css';
 import { useSelector } from 'react-redux';
+// import { store } from 'redux/store';
+// import { filterReducer } from 'redux/sliceFilter';
 
 export const App = () => {
-  // const filtered = useSelector(state => state.filter);
   const contacts = useSelector(state => state.contacts.items);
-  console.log(contacts);
-  // const filterContact = e => {
-  //   const filteredContacts = contacts.filter(contact =>
-  //     contact.name.toLowerCase().includes(filtered.toLowerCase())
-  //   );
-  //   return filteredContacts;
-  // };
+  const filtered = useSelector(state => state.filter);
+  // console.log(filtered);
+  const filterContact = e => {
+    //   console.log(contacts);
+    const filteredContacts = contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filtered.toLowerCase())
+    );
+    // console.log(filteredContacts);
+    return filteredContacts;
+  };
 
   return (
     <div className={css.container}>
@@ -21,7 +25,7 @@ export const App = () => {
       <ContactForm />
       <h2>Contacts</h2>
       <Filter />
-      <ContactList listContact={contacts} />
+      <ContactList listContact={filterContact()} />
     </div>
   );
 };

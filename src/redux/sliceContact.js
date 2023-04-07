@@ -16,7 +16,14 @@ const handleReject = (state, { payload }) => {
 const sliceContact = createSlice({
   name: 'contacts',
   initialState: {
-    items: [1, 2, 3],
+    items: [
+      {
+        createdAt: '2023-04-05T23:25:30.677Z',
+        name: 'Dolores Morar',
+        phone: '(570) 817-2230',
+        id: '29',
+      },
+    ],
     isLoading: false,
     error: null,
   },

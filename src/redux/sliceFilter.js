@@ -4,11 +4,17 @@ export const sliceFilter = createSlice({
   name: 'filter',
   initialState: '',
   reducers: {
-    qwery(state, action) {
-      return (state = action.payload);
+    filterContact(_, { payload }) {
+      return payload;
     },
-    filter(state, action) {},
+    // qwery(state, action) {
+    //   return (state = action.payload);
+    // },
+    // filter(state, action) {},
   },
 });
 
-export const { qwery, filter } = sliceFilter.actions;
+export const { filterContact } = sliceFilter.actions;
+export const filterReducer = sliceFilter.reducer;
+
+// export const { qwery, filter } = sliceFilter.actions;
